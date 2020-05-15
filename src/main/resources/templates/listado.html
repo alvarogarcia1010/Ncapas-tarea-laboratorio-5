@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8">
+    <title>Listado</title>
+      <link href="css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body>
+	  <div class="container">
+	    <div class="row justify-content-center">
+	      <div class="col-md-6">
+	        <div class="card text-center mt-2 p-2">
+	         <legend class="text-left">
+	           Lista de estudiantes
+	           <a class="btn btn-outline-secondary float-right" th:href="@{/inicio}">Regresar</a>
+	         </legend>
+
+            <table class="table table-striped">
+						  <thead>
+						    <tr>
+						      <th scope="col">#</th>
+						      <th scope="col">Nombre</th>
+						      <th scope="col">Apellido</th>
+						      <th scope="col">Carnet</th>
+						      <th scope="col">Carrera</th>
+						    </tr>
+						  </thead>
+						  <tbody>
+						    <th:block th:each="estudiante, row: ${estudiantes}">
+						      <tr>
+	                  <th th:text="${estudiante.codigo}" scope="row"/>
+	                  <td th:text="${estudiante.nombre}"/>
+	                  <td th:text="${estudiante.apellido}"/>
+	                  <td th:text="${estudiante.carnet}"/>
+	                  <td th:text="${estudiante.carrera}"/>
+	                </tr>
+					     </th:block>
+						  </tbody>
+						</table>
+	        </div>
+	      </div>
+	    </div>
+	  </div>  
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

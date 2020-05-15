@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8">
+    <title>Inicio</title>
+      <link href="css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body>
+     <div class="container">
+      <div class="row justify-content-center">
+         <div class="col-md-6">
+          <div class="card mt-2">
+            <div class="card-body">
+              <form th:action="@{/formEstudiante}" th:object="${estudiante}" method="post"> 
+	              <legend>
+		             Crear nuevo estudiante
+		             <button type="submit" class="btn btn-success float-right">Guardar</button>
+		             <a class="btn btn-outline-info float-right mr-3" th:href="@{/listado}" role="button">Ver registros</a>
+		             </legend>
+	                <div class="form-group">
+	                  <label for="nombre" class="mb-1">Nombre</label>
+	                  <input type="text" class="form-control" th:field="*{nombre}" id="nombre" name="nombre">
+	                  <small th:errors="*{nombre}" style="color: #FF0000"></small>
+	                </div>
+	                <div class="form-group">
+	                  <label for="apellido" class="mb-1">Apellido</label>
+	                  <input type="text" class="form-control" th:field="*{apellido}" id="apellido" name="apellido">
+	                  <small th:errors="*{apellido}" style="color: #FF0000"></small>              
+	                </div>
+	                <div class="form-group">
+	                  <label for="carnet" class="mb-1">Carnet</label>
+	                  <input type="number" class="form-control" th:field="*{carnet}" id="carnet" name="carnet">
+	                  <small th:errors="*{carnet}" style="color: #FF0000"></small>  
+	                </div>
+	                <div class="form-group">
+	                  <label for="carrera" >Carrera</label>
+	                  <input type="text" class="form-control" th:field="*{carrera}" id="carrera" name="carrera">
+	                  <small th:errors="*{carrera}" style="color: #FF0000"></small> 
+	                </div>
+	              </form>
+            </div>
+         </div>
+        </div>
+      </div>
+    </div>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
