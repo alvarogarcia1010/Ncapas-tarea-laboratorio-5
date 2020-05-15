@@ -6,6 +6,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(schema="public", name="estudiante")
@@ -17,15 +19,20 @@ public class Estudiante {
 	private Integer codigo;
 	
 	@Column(name="nombre")
+	@NotEmpty(message="Este campo no puede estar vacio")
 	private String nombre;
 	
 	@Column(name="apellido")
+	@NotEmpty(message="Este campo no puede estar vacio")
 	private String apellido;
 	
 	@Column(name="carne")
+	@NotEmpty(message="Este campo no puede estar vacio")
+	@Size(min=8, max=8, message="El carnet debe tener 8 digitos")
 	private String carnet;
 	
 	@Column(name="carrera")
+	@NotEmpty(message="Este campo no puede estar vacio")
 	private String carrera;
 	
 	public Estudiante() {
