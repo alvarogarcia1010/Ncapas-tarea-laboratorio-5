@@ -23,7 +23,7 @@ public class MainController {
 	
 	@RequestMapping("/")
 	public String init() {
-		return "redirect:/inicio";
+		return "redirect:/listado";
 	}
 	
 	@RequestMapping("/inicio")
